@@ -223,9 +223,8 @@
 
 .post-content blockquote {
     margin: 20px 0;
-    padding: 0 20px;
-    color: var(--secondary);    
-    border-inline-start: 6px solid var(--tertiary);
+    padding: 0 14px;
+    border-inline-start: 4px solid var(--tertiary);
 }
 
 .post-content hr {

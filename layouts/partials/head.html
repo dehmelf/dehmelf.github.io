@@ -8,15 +8,7 @@
 {{- end }}
 
 {{- /* Title */}}
-<title>
-  {{- if eq .Kind "404" -}}
-    404: Page not found | {{ .Site.Title }}
-  {{- else if and (not .IsHome) .Title -}}
-    {{ .Title }} | {{ .Site.Title }}
-  {{- else -}}
-    {{ .Site.Title }}
-  {{- end -}}
-</title>
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
 
 {{- /* Meta */}}
 {{- if .IsHome }}
@@ -86,12 +78,13 @@
 {{- end -}}
 
 {{- /* Favicons */}}
-<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
+<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL }}">
-<meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
-<meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
+<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}" color="#639ab3" >
+<meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#639ab3" }}">
+<meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#639ab3" }}">
 
 {{- /* RSS */}}
 {{ range .AlternativeOutputFormats -}}
@@ -141,9 +134,9 @@
     {{- end }}
 </noscript>
 
-{{- partial "templates/opengraph.html" . }}
-{{- partial "templates/twitter_cards.html" . }}
-{{- partial "templates/schema_json.html" . }}
+{{- template "partials/templates/opengraph.html" . }}
+{{- template "partials/templates/twitter_cards.html" . }}
+{{- template "partials/templates/schema_json.html" . }}
 
 {{ if and (hugo.IsProduction) (.Site.Params.googleAnalyticsID) }}
 {{- partial "analytics.html" . }}

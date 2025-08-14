@@ -29,12 +29,12 @@
 
 .social-icons a {
     display: inline-flex;
-    padding: 10px 14px 10px 0px;
+    padding: 10px;
 }
 
 .social-icons a svg {
-    height: 30px;
-    width: 30px;
+    height: 26px;
+    width: 26px;
 }
 
 .social-icons a:hover {

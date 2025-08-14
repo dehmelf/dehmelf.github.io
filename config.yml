@@ -1,36 +1,31 @@
 baseURL: "https://dehmelf.github.io/" 
-title: Your Name
+title: Frederick Dehmel
 theme: PaperMod
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
-pagination:
-  pagerSize: 20
 
 taxonomies:
     tag: tags
 
 menu:
     main:
-        - name: Books
-          url: books/
-          weight: 5 
-        - name: Papers
-          url: papers/
+        - name: Research
+          url: /papers/
+          weight: 1 
+        - name: Resume
+          url: cv/
           weight: 2
-        - name: Courses
+        - name: Teaching
           url: courses/
           weight: 3
-        - name: Data
-          url: data/
-          weight: 4 
-        - name: Blog
-          url: blog/
-          weight: 6
+        - name: News
+          url: news/
+          weight: 4
 
 params:
-    description: "Welcome to my personal website. Here you'll find my research papers, projects, courses, and contact information."
-    author: Your Name
+    description: "Welcome to my personal website. Here you'll find my research papers, teaching materials, and more."
+    author: Frederick Dehmel
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -44,7 +39,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    #MainSections: ["books","courses","papers","data"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -54,59 +49,47 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Your Name
-          subtitle: "Brief description of who you are and what you do. Update this with your actual bio."
+          title: Frederick Dehmel
+          subtitle: "Welcome! I'm a researcher in [your field]. Update this with your actual bio and research interests."
           imageUrl: "picture.jpeg"
-          imageWidth: 160
-          imageHeight: 160
+          imageWidth: 180
+          imageHeight: 180
           buttons:
-            - name: Papers
+            - name: Research
               url: papers/
-            - name: Data
-              url: data/
-            - name: Books
-              url: books/
-            - name: Courses
+            - name: Resume
+              url: cv/
+            - name: Teaching
               url: courses/
-            - name: Tags
-              url: tags/
-            - name: Archive
-              url: archive/
-            - name: Blog
-              url: blog/
+            - name: News
+              url: news/
 
     socialIcons:
         - name: CV
-          url: cv.pdf
+          url: Academic_Resume.pdf
         - name: Email
-          url: mailto:your.email@example.com
-        - name: Zoom
-          url: https://www.zoom.us/my/yourzoomid
+          url: mailto:frederick.dehmel@example.com
+        - name: orcid
+          url: https://orcid.org/0000-0000-0000-0000
         - name: Location
           url: location/
-        - name: Office Hours
-          url: officehours/
-        - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
         - name: GitHub
           url: https://github.com/dehmelf
-        - name: Substack
-          url: https://pmichaillat.substack.com
-        - name: YouTube
-          url: https://www.youtube.com/@pmichaillat
-        - name: Twitter
-          url: https://x.com/pmichaillat
-        - name: Bluesky
-          url: https://bsky.app/profile/pmichaillat.bsky.social
 
     assets:
+        disableHLJS: true
         disableScrollBarStyle: true
+        favicon: "img/favicon.ico"
+        favicon16x16: "img/favicon-16x16.png"
+        favicon32x32: "img/favicon-32x32.png"
+        apple_touch_icon: "img/apple-touch-icon.png"
+        mask_icon: "img/favicon_safari.png"
     cover:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Your Name"
-      icon: favicon.ico
+      text: "Frederick Dehmel"
+      icon: img/favicon.ico
       iconHeight: 18
 
 markup:
