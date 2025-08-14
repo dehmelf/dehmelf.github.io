@@ -2,3 +2,10 @@
 public/
 resources/
 .hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if using any)
+node_modules/

@@ -1,4 +1,6 @@
 ---
 title: "Papers"
-description: "Preprints and articles by Professor Dr von Igelfeld."
+description: "My research papers and publications."
 ---
+
+This section contains my research papers and publications.
