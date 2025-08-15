@@ -10,22 +10,22 @@ taxonomies:
 
 menu:
     main:
-        - name: Research
+        - name: Papers
           url: /papers/
           weight: 1 
-        - name: Resume
-          url: cv/
-          weight: 2
         - name: Teaching
           url: courses/
+          weight: 2
+        - name: CV
+          url: Academic_Resume.pdf
           weight: 3
-        - name: News
-          url: news/
+        - name: Papers I've Read!
+          url: papers-read/
           weight: 4
 
 params:
-    description: "Welcome to my personal website. Here you'll find my research papers, teaching materials, and more."
     author: Frederick Dehmel
+    description: "Welcome to my personal website! I'm an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. I'm broadly interested in (quantum AND classical for all of the following): algorithms, complexity and theory, cryptography, and architecture."
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -50,29 +50,28 @@ params:
     profileMode:
           enabled: true
           title: Frederick Dehmel
-          subtitle: "Welcome! I'm a researcher in [your field]. Update this with your actual bio and research interests."
+          subtitle: "Undergraduate researcher at UC Berkeley studying computer science and pure mathematics. I'm broadly interested in quantum and classical algorithms, complexity theory, cryptography, and computer architecture."
           imageUrl: "picture.jpeg"
           imageWidth: 180
           imageHeight: 180
           buttons:
-            - name: Research
+            - name: Papers
               url: papers/
-            - name: Resume
-              url: cv/
             - name: Teaching
               url: courses/
-            - name: News
-              url: news/
+            - name: CV
+              url: Academic_Resume.pdf
+            - name: Papers I've Read!
+              url: papers-read/
 
     socialIcons:
         - name: CV
           url: Academic_Resume.pdf
         - name: Email
-          url: mailto:frederick.dehmel@example.com
-        - name: orcid
-          url: https://orcid.org/0000-0000-0000-0000
-        - name: Location
-          url: location/
+          url: mailto:dehmelf@berkeley.edu
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/dehmelf
+
         - name: GitHub
           url: https://github.com/dehmelf
 
