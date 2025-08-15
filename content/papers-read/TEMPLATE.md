@@ -1,7 +1,12 @@
 ---
 title: "Paper Title Here"
 date: 2024-01-01
-tags: ["quantum error correction", "quantum computing", "complexity theory", "cryptography", "machine learning"]  # Add relevant tags
+# Use main topics and subtopics from this hierarchy:
+# Main Topics: "Quantum Computing", "Machine Learning", "Cryptography", "Complexity Theory", "Systems", "Algorithms"
+# Quantum subtopics: "Quantum Error Correction", "Quantum Algorithms", "Quantum Supremacy", "NISQ", "Quantum Hardware", "Quantum Cryptography"
+# ML subtopics: "Deep Learning", "Transformers", "Reinforcement Learning", "Neural Architecture", "Computer Vision", "NLP"
+# Crypto subtopics: "Post-Quantum Cryptography", "Zero-Knowledge Proofs", "Lattice-Based", "Homomorphic Encryption", "Secure Computation"
+tags: ["Quantum Computing", "Quantum Error Correction"]  # Example tags
 author: "Author names"
 description: "Brief one-line description of the paper"
 weight: 10  # Lower numbers appear first

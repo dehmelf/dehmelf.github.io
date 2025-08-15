@@ -1,89 +1,220 @@
 {{ $papers := where .Site.RegularPages "Section" "papers-read" }}
-{{ $tags := slice }}
+{{ $papers = where $papers "Params.draft" "!=" true }}
 
-<!-- Collect all unique tags -->
+<!-- Define topic hierarchy -->
+{{ $topicHierarchy := dict 
+  "Quantum Computing" (slice "Quantum Error Correction" "Quantum Algorithms" "Quantum Supremacy" "NISQ" "Quantum Hardware" "Quantum Cryptography")
+  "Machine Learning" (slice "Deep Learning" "Transformers" "Reinforcement Learning" "Neural Architecture" "Computer Vision" "NLP")
+  "Cryptography" (slice "Post-Quantum Cryptography" "Zero-Knowledge Proofs" "Lattice-Based" "Homomorphic Encryption" "Secure Computation")
+  "Complexity Theory" (slice "P vs NP" "Circuit Complexity" "Communication Complexity" "Hardness Results" "Lower Bounds")
+  "Systems" (slice "Distributed Systems" "Operating Systems" "Compilers" "Architecture" "Networks")
+  "Algorithms" (slice "Graph Algorithms" "Optimization" "Randomized Algorithms" "Approximation Algorithms" "Data Structures")
+}}
+
+<!-- Collect papers by topic -->
+{{ $papersByTopic := dict }}
 {{ range $papers }}
+  {{ $paper := . }}
   {{ range .Params.tags }}
-    {{ $tags = $tags | append . }}
+    {{ $tag := . }}
+    {{ range $mainTopic, $subtopics := $topicHierarchy }}
+      {{ if or (eq $tag $mainTopic) (in $subtopics $tag) }}
+        {{ $existing := index $papersByTopic $mainTopic | default slice }}
+        {{ $papersByTopic = merge $papersByTopic (dict $mainTopic ($existing | append $paper)) }}
+      {{ end }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
-{{ $uniqueTags := $tags | uniq }}
-
-<!-- Display tag buttons -->
-<div class="tag-filter-container" style="margin: 20px 0;">
-  <div class="tag-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-    {{ range $uniqueTags }}
-      <button class="tag-button" data-tag="{{ . | urlize }}" style="
-        padding: 8px 16px;
+<div class="topic-container" style="margin: 20px 0;">
+  <div class="main-topics" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px;">
+    {{ range $topic, $subtopics := $topicHierarchy }}
+      {{ $paperCount := len (index $papersByTopic $topic | default slice) }}
+      {{ if gt $paperCount 0 }}
+      <div class="topic-group" style="
         background: var(--code-bg);
         border: 1px solid var(--border);
-        border-radius: 20px;
-        cursor: pointer;
+        border-radius: 12px;
+        padding: 15px;
+        min-width: 200px;
         transition: all 0.3s ease;
-        font-size: 14px;
-      " onmouseover="this.style.background='var(--primary)'; this.style.color='var(--theme)';" 
-         onmouseout="this.style.background='var(--code-bg)'; this.style.color='var(--primary)';">
-        {{ . }} 
-        <span class="tag-count" style="opacity: 0.7; margin-left: 4px;">
-          ({{ len (where $papers ".Params.tags" "intersect" (slice .)) }})
-        </span>
-      </button>
+      ">
+        <button class="main-topic-btn" data-topic="{{ $topic | urlize }}" style="
+          background: none;
+          border: none;
+          color: var(--primary);
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 10px;
+        ">
+          <span>{{ $topic }}</span>
+          <span style="display: flex; align-items: center; gap: 8px;">
+            <span class="paper-count" style="opacity: 0.7; font-size: 14px;">({{ $paperCount }})</span>
+            <span class="expand-icon" style="transition: transform 0.3s;">▼</span>
+          </span>
+        </button>
+        <div class="subtopics" style="display: none; margin-top: 10px;">
+          {{ range $subtopics }}
+            {{ $subtopic := . }}
+            {{ $subCount := 0 }}
+            {{ range $papers }}
+              {{ if in .Params.tags $subtopic }}
+                {{ $subCount = add $subCount 1 }}
+              {{ end }}
+            {{ end }}
+            {{ if gt $subCount 0 }}
+            <button class="subtopic-btn" data-tag="{{ $subtopic | urlize }}" style="
+              display: block;
+              width: 100%;
+              text-align: left;
+              padding: 6px 12px;
+              margin: 4px 0;
+              background: var(--tertiary);
+              border: 1px solid var(--border);
+              border-radius: 8px;
+              cursor: pointer;
+              font-size: 13px;
+              color: var(--secondary);
+              transition: all 0.2s ease;
+            " onmouseover="this.style.background='var(--primary)'; this.style.color='var(--theme)';" 
+               onmouseout="this.style.background='var(--tertiary)'; this.style.color='var(--secondary)';">
+              {{ $subtopic }} <span style="opacity: 0.7;">({{ $subCount }})</span>
+            </button>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
     {{ end }}
-    <button class="tag-button show-all" data-tag="all" style="
-      padding: 8px 16px;
+    
+    <button class="show-all-btn" data-tag="all" style="
+      padding: 12px 20px;
       background: var(--primary);
       color: var(--theme);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 12px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: bold;
+      transition: all 0.3s ease;
     ">
-      Show All
+      Show All Papers
     </button>
   </div>
 </div>
 
+<style>
+.topic-group:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.subtopics {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.subtopics.expanded {
+  max-height: 500px;
+}
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const buttons = document.querySelectorAll('.tag-button');
+  const mainTopicBtns = document.querySelectorAll('.main-topic-btn');
+  const subtopicBtns = document.querySelectorAll('.subtopic-btn');
+  const showAllBtn = document.querySelector('.show-all-btn');
   const papers = document.querySelectorAll('.paper-entry');
   
-  buttons.forEach(button => {
-    button.addEventListener('click', function() {
-      const selectedTag = this.dataset.tag;
+  // Handle main topic expansion
+  mainTopicBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const subtopics = this.nextElementSibling;
+      const expandIcon = this.querySelector('.expand-icon');
+      const topic = this.dataset.topic;
       
-      // Update button styles
-      buttons.forEach(btn => {
-        if (btn === this) {
-          btn.style.background = 'var(--primary)';
-          btn.style.color = 'var(--theme)';
-          btn.style.fontWeight = 'bold';
-        } else if (!btn.classList.contains('show-all')) {
-          btn.style.background = 'var(--code-bg)';
-          btn.style.color = 'var(--primary)';
-          btn.style.fontWeight = 'normal';
-        } else {
-          btn.style.fontWeight = 'normal';
-        }
-      });
-      
-      // Filter papers
-      papers.forEach(paper => {
-        if (selectedTag === 'all') {
-          paper.style.display = 'block';
-        } else {
-          const paperTags = paper.dataset.tags.split(',');
-          if (paperTags.some(tag => tag.trim() === selectedTag)) {
-            paper.style.display = 'block';
-          } else {
-            paper.style.display = 'none';
-          }
-        }
-      });
+      // Toggle subtopics
+      if (subtopics.style.display === 'none' || subtopics.style.display === '') {
+        subtopics.style.display = 'block';
+        expandIcon.style.transform = 'rotate(180deg)';
+        
+        // Show papers for this main topic
+        filterPapersByMainTopic(topic);
+      } else {
+        subtopics.style.display = 'none';
+        expandIcon.style.transform = 'rotate(0deg)';
+      }
     });
   });
+  
+  // Handle subtopic filtering
+  subtopicBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const tag = this.dataset.tag;
+      filterPapersByTag(tag);
+      
+      // Highlight selected button
+      subtopicBtns.forEach(b => {
+        b.style.background = 'var(--tertiary)';
+        b.style.color = 'var(--secondary)';
+      });
+      this.style.background = 'var(--primary)';
+      this.style.color = 'var(--theme)';
+    });
+  });
+  
+  // Show all papers
+  showAllBtn?.addEventListener('click', function() {
+    papers.forEach(paper => {
+      paper.style.display = 'block';
+    });
+    
+    // Reset all button styles
+    subtopicBtns.forEach(b => {
+      b.style.background = 'var(--tertiary)';
+      b.style.color = 'var(--secondary)';
+    });
+  });
+  
+  function filterPapersByTag(tag) {
+    papers.forEach(paper => {
+      const paperTags = paper.dataset.tags ? paper.dataset.tags.split(',') : [];
+      if (paperTags.some(t => t.trim() === tag)) {
+        paper.style.display = 'block';
+      } else {
+        paper.style.display = 'none';
+      }
+    });
+  }
+  
+  function filterPapersByMainTopic(topic) {
+    const topicMap = {
+      'quantum-computing': ['quantum-computing', 'quantum-error-correction', 'quantum-algorithms', 'quantum-supremacy', 'nisq', 'quantum-hardware', 'quantum-cryptography'],
+      'machine-learning': ['machine-learning', 'deep-learning', 'transformers', 'reinforcement-learning', 'neural-architecture', 'computer-vision', 'nlp'],
+      'cryptography': ['cryptography', 'post-quantum-cryptography', 'zero-knowledge-proofs', 'lattice-based', 'homomorphic-encryption', 'secure-computation'],
+      'complexity-theory': ['complexity-theory', 'p-vs-np', 'circuit-complexity', 'communication-complexity', 'hardness-results', 'lower-bounds'],
+      'systems': ['distributed-systems', 'operating-systems', 'compilers', 'architecture', 'networks'],
+      'algorithms': ['graph-algorithms', 'optimization', 'randomized-algorithms', 'approximation-algorithms', 'data-structures']
+    };
+    
+    const relatedTags = topicMap[topic] || [];
+    
+    papers.forEach(paper => {
+      const paperTags = paper.dataset.tags ? paper.dataset.tags.split(',').map(t => t.trim()) : [];
+      if (paperTags.some(tag => relatedTags.includes(tag))) {
+        paper.style.display = 'block';
+      } else {
+        paper.style.display = 'none';
+      }
+    });
+  }
 });
 </script>

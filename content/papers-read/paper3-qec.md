@@ -1,7 +1,7 @@
 ---
 title: "Surface Codes: Towards Practical Large-Scale Quantum Computation"
 date: 2024-03-05
-tags: ["quantum error correction", "surface codes", "fault tolerance", "quantum computing", "topological codes"]
+tags: ["Quantum Computing", "Quantum Error Correction", "Quantum Hardware"]
 author: "Austin G. Fowler, Matteo Mariantoni, John M. Martinis, Andrew N. Cleland"
 description: "Comprehensive review of surface code quantum error correction and its path to scalable quantum computing"
 weight: 3
