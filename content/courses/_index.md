@@ -1,57 +1,77 @@
 ---
 title: "Teaching"
 hidemeta: true
-description: "Teaching experience and course materials"
+description: "Teaching experience and course materials at UC Berkeley"
 ---
 
 ---
 
-## Main Instructor / Coordinator
+## Lecturer
 
-### ACADEMIC YEAR 2024/2025
+### SUMMER 2025
 
-**[Course Name]** *(Replace with your actual course)*  
-UC Berkeley, [Semester]  
-Lecture notes: [Session 1](/teaching/course/lecture1.pdf), [Session 2](/teaching/course/lecture2.pdf), [Session 3](/teaching/course/lecture3.pdf)  
-Tutorials: [Session 1](/teaching/course/tutorial1.pdf), [Session 2](/teaching/course/tutorial2.pdf), [Session 3](/teaching/course/tutorial3.pdf)
-
----
-
-## Teaching Assistant
-
-### ACADEMIC YEAR 2024/2025
-
-**[Course Name]**, [Year] of [Program]  
-[Add description or materials]
-
-### ACADEMIC YEAR 2023/2024
-
-**[Course Name]**, [Year] of [Program]  
-[Add description or materials]
-
-### ACADEMIC YEAR 2022/2023
-
-**[Course Name]**, [Year] of [Program]  
-[Partial exam 1](/teaching/course/exam1.pdf), [Partial exam 2](/teaching/course/exam2.pdf)  
-
-**[Course Name]**, [Year] of [Program]  
-[Partial exam](/teaching/course/exam.pdf)
-
-### ACADEMIC YEAR 2021/2022
-
-**[Course Name]**, [Year] of [Program]  
-[First partial exam](/teaching/course/exam1.pdf), [Second partial exam](/teaching/course/exam2.pdf)
-
-### ACADEMIC YEAR 2020/2021
-
-**[Course Name]**, [Year] of [Program]  
-[Partial exam](/teaching/course/exam.pdf)
-
-### ACADEMIC YEAR 2019/2020
-
-**[Course Name]**, [Year] of [Program]  
-[Description or materials]
+**CS 161: Computer Security**  
+UC Berkeley, Summer 2025  
+[Course Website](https://su25.cs161.org)  
+Co-instructing with Jonah Bedouch and Peyrin Kao  
+Topics: Cryptography, Network Security, Web Security, Memory Safety
 
 ---
 
-*Note: Replace the bracketed placeholders with your actual teaching experience. You can add links to PDFs by placing them in the `/static/teaching/` folder and linking to them as shown above.*
+## Head Teaching Assistant
+
+### FALL 2025
+
+**CS 161: Computer Security**  
+UC Berkeley, Fall 2025  
+Managing team of 20+ TAs and tutors  
+Coordinating discussion sections, exam logistics, and course infrastructure
+
+---
+
+## Teaching Assistant & Tutor
+
+### SPRING 2025
+
+**CS 161: Computer Security** *(Tutor)*  
+UC Berkeley, Spring 2025  
+[Course Website](https://sp25.cs161.org)  
+Weekly tutoring sessions, project support, and exam review sessions
+
+**CS 10: The Beauty and Joy of Computing** *(Academic Intern)*  
+UC Berkeley, Spring 2025  
+[Course Website](https://cs10.org/sp25/)  
+Assisting with labs, grading, and student support  
+Instructor: Dan Garcia
+
+---
+
+## Computer Science Mentors (CSM)
+
+### SPRING 2025
+
+**CS 61B: Data Structures**  
+UC Berkeley, Spring 2025  
+[Course Website](https://sp25.datastructur.es)  
+Leading weekly small-group tutoring sections  
+Topics: Trees, Graphs, Hashing, Heaps, Sorting Algorithms
+
+### SPRING 2024
+
+**CS 61A: Structure and Interpretation of Computer Programs**  
+UC Berkeley, Spring 2024  
+[Past Course Websites](https://cs61a.org/resources/#past-course-websites)  
+Led weekly small-group tutoring sections  
+Topics: Recursion, Higher-Order Functions, Object-Oriented Programming, Scheme
+
+---
+
+## Teaching Philosophy
+
+I believe in making complex computer science concepts accessible through clear explanations, interactive examples, and hands-on practice. My experience across security, systems, and theoretical CS allows me to connect ideas across the curriculum and help students see the bigger picture.
+
+---
+
+## Awards & Recognition
+
+*[Add any teaching awards or recognition you've received]*
