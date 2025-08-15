@@ -70,8 +70,3 @@ Topics: Recursion, Higher-Order Functions, Object-Oriented Programming, Scheme
 
 I believe in making complex computer science concepts accessible through clear explanations, interactive examples, and hands-on practice. My experience across security, systems, and theoretical CS allows me to connect ideas across the curriculum and help students see the bigger picture.
 
----
-
-## Awards & Recognition
-
-*[Add any teaching awards or recognition you've received]*
