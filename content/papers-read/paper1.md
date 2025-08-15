@@ -1,7 +1,7 @@
 ---
 title: "Quantum Supremacy Using a Programmable Superconducting Processor"
 date: 2024-01-15
-tags: ["quantum computing", "supremacy", "superconducting qubits"]
+tags: ["quantum computing", "quantum supremacy", "superconducting qubits", "NISQ", "benchmarking"]
 author: "Arute et al. (Google AI Quantum)"
 description: "Google's landmark quantum supremacy paper demonstrating computational advantage"
 weight: 1

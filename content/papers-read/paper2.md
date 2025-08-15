@@ -1,7 +1,7 @@
 ---
 title: "Attention Is All You Need"
 date: 2024-02-10
-tags: ["machine learning", "transformers", "attention mechanisms"]
+tags: ["machine learning", "transformers", "attention mechanisms", "NLP", "deep learning", "neural architecture"]
 author: "Vaswani et al."
 description: "The paper that introduced the Transformer architecture and revolutionized NLP"
 weight: 2

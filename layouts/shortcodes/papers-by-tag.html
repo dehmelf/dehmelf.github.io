@@ -1,0 +1,89 @@
+{{ $papers := where .Site.RegularPages "Section" "papers-read" }}
+{{ $tags := slice }}
+
+<!-- Collect all unique tags -->
+{{ range $papers }}
+  {{ range .Params.tags }}
+    {{ $tags = $tags | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $uniqueTags := $tags | uniq }}
+
+<!-- Display tag buttons -->
+<div class="tag-filter-container" style="margin: 20px 0;">
+  <div class="tag-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+    {{ range $uniqueTags }}
+      <button class="tag-button" data-tag="{{ . | urlize }}" style="
+        padding: 8px 16px;
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      " onmouseover="this.style.background='var(--primary)'; this.style.color='var(--theme)';" 
+         onmouseout="this.style.background='var(--code-bg)'; this.style.color='var(--primary)';">
+        {{ . }} 
+        <span class="tag-count" style="opacity: 0.7; margin-left: 4px;">
+          ({{ len (where $papers ".Params.tags" "intersect" (slice .)) }})
+        </span>
+      </button>
+    {{ end }}
+    <button class="tag-button show-all" data-tag="all" style="
+      padding: 8px 16px;
+      background: var(--primary);
+      color: var(--theme);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: bold;
+    ">
+      Show All
+    </button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const buttons = document.querySelectorAll('.tag-button');
+  const papers = document.querySelectorAll('.paper-entry');
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selectedTag = this.dataset.tag;
+      
+      // Update button styles
+      buttons.forEach(btn => {
+        if (btn === this) {
+          btn.style.background = 'var(--primary)';
+          btn.style.color = 'var(--theme)';
+          btn.style.fontWeight = 'bold';
+        } else if (!btn.classList.contains('show-all')) {
+          btn.style.background = 'var(--code-bg)';
+          btn.style.color = 'var(--primary)';
+          btn.style.fontWeight = 'normal';
+        } else {
+          btn.style.fontWeight = 'normal';
+        }
+      });
+      
+      // Filter papers
+      papers.forEach(paper => {
+        if (selectedTag === 'all') {
+          paper.style.display = 'block';
+        } else {
+          const paperTags = paper.dataset.tags.split(',');
+          if (paperTags.some(tag => tag.trim() === selectedTag)) {
+            paper.style.display = 'block';
+          } else {
+            paper.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+});
+</script>

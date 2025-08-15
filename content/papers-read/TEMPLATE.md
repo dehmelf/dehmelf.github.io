@@ -1,7 +1,7 @@
 ---
 title: "Paper Title Here"
 date: 2024-01-01
-tags: ["tag1", "tag2", "tag3"]
+tags: ["quantum error correction", "quantum computing", "complexity theory", "cryptography", "machine learning"]  # Add relevant tags
 author: "Author names"
 description: "Brief one-line description of the paper"
 weight: 10  # Lower numbers appear first
