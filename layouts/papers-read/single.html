@@ -1,0 +1,46 @@
+{{- define "main" }}
+
+<div class="papers-read-page">
+  <div class="papers-read-content">
+    <header class="paper-note-header">
+      <h1 class="paper-note-title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h1>
+      
+      {{- if .Params.author }}
+      <div class="paper-note-meta">
+        <strong>Authors:</strong> {{ .Params.author }}
+      </div>
+      {{- end }}
+      
+      {{- if .Date }}
+      <div class="paper-note-meta">
+        <strong>Date:</strong> {{ .Date.Format "January 2006" }}
+      </div>
+      {{- end }}
+      
+      {{- if .Params.tags }}
+      <div class="paper-note-tags">
+        {{- range .Params.tags }}
+        <span class="paper-tag">{{ . }}</span>
+        {{- end }}
+      </div>
+      {{- end }}
+    </header>
+    
+    <div class="paper-note-content">
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+    </div>
+    
+    <footer class="paper-note-footer">
+      <div class="paper-note-back">
+        <a href="/papers-read/">← Back to Papers I've Read</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+{{- end }}{{/* end main */}}
+

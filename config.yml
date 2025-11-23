@@ -25,7 +25,7 @@ menu:
 
 params:
     author: Frederick Dehmel
-    description: "Welcome to my personal website! I'm an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. I'm broadly interested in (quantum AND classical for all of the following): algorithms, complexity and theory, cryptography, and architecture."
+    description: "Welcome to my personal website! I'm an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. I'm broadly interested in efficiency: whether it's quantum AND classical for all of the following: algorithms, complexity and theory, cryptography, and architecture."
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -48,12 +48,12 @@ params:
     comments: false
     math: true
     profileMode:
-          enabled: true
+          enabled: false
           title: Frederick Dehmel
           subtitle: "Undergraduate researcher at UC Berkeley studying computer science and pure mathematics. I'm broadly interested in quantum and classical algorithms, complexity theory, cryptography, and computer architecture."
-          imageUrl: "picture.jpeg"
-          imageWidth: 180
-          imageHeight: 180
+          # imageUrl: "picture.jpeg"
+          # imageWidth: 180
+          # imageHeight: 180
           buttons:
             - name: Papers
               url: papers/
@@ -78,17 +78,17 @@ params:
     assets:
         disableHLJS: true
         disableScrollBarStyle: true
-        favicon: "img/favicon.ico"
-        favicon16x16: "img/favicon-16x16.png"
-        favicon32x32: "img/favicon-32x32.png"
-        apple_touch_icon: "img/apple-touch-icon.png"
-        mask_icon: "img/favicon_safari.png"
+        favicon: "sc.png"
+        favicon16x16: "sc.png"
+        favicon32x32: "sc.png"
+        apple_touch_icon: "sc.png"
+        mask_icon: "sc.png"
     cover:
         hiddenInList: false
         hiddenInSingle: true
     label:
       text: "Frederick Dehmel"
-      icon: img/favicon.ico
+      icon: sc.png
       iconHeight: 18
 
 markup:

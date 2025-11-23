@@ -1,0 +1,67 @@
+{{- define "main" }}
+
+<div class="papers-read-page courses-page">
+  <div class="courses-content-wrapper">
+    <div class="teaching-experience-box courses-title-box">
+      <h1 class="courses-page-title">{{ .Title }}</h1>
+    </div>
+    
+    <div class="courses-body" id="courses-content">
+      {{- .Content }}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const coursesBody = document.getElementById('courses-content');
+  if (!coursesBody) return;
+  
+  // Hide hr elements
+  const hrElements = coursesBody.querySelectorAll('hr');
+  hrElements.forEach(hr => hr.style.display = 'none');
+  
+  // Find all h2 elements
+  const h2Elements = Array.from(coursesBody.querySelectorAll('h2'));
+  
+  if (h2Elements.length === 0) return;
+  
+  // Create a wrapper for all boxes
+  const coursesList = document.createElement('div');
+  coursesList.className = 'courses-list';
+  
+  // Process each h2 section
+  h2Elements.forEach((h2, index) => {
+    const box = document.createElement('div');
+    box.className = 'teaching-experience-box';
+    
+    // Find the next h2 or end of container
+    let current = h2;
+    const sectionNodes = [];
+    
+    while (current && current !== coursesBody) {
+      sectionNodes.push(current);
+      
+      // Check if next sibling is an h2
+      const next = current.nextElementSibling;
+      if (next && next.tagName === 'H2') break;
+      if (!next) break;
+      
+      current = next;
+    }
+    
+    // Move all nodes to the box
+    sectionNodes.forEach(node => {
+      box.appendChild(node);
+    });
+    
+    coursesList.appendChild(box);
+  });
+  
+  // Replace the original content with the boxed version
+  coursesBody.parentNode.replaceChild(coursesList, coursesBody);
+});
+</script>
+
+{{- end }}{{/* end main */}}
+

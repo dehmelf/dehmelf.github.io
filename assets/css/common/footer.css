@@ -9,7 +9,7 @@
     padding: calc((var(--footer-height) - var(--gap)) / 2) var(--gap);
     text-align: center;
     line-height: 20px;
-    background: var(--code-bg);
+    background: var(--theme);
 }
 
 .footer span {
@@ -22,7 +22,7 @@
 }
 
 .footer a {
-    color: var(--secondary);
+    color: #FDB515;
 }
 
 .footer a:hover {

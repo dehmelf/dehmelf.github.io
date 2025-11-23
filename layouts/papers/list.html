@@ -1,0 +1,42 @@
+{{- define "main" }}
+
+<div class="papers-read-page papers-page">
+  <div class="courses-content-wrapper">
+    <div class="teaching-experience-box courses-title-box">
+      <h1 class="courses-page-title">{{ .Title }}</h1>
+    </div>
+    
+    <div class="courses-list">
+      {{- $pages := where .Site.RegularPages "Section" "papers" }}
+      {{- $pages = where $pages "Params.draft" "!=" true }}
+      {{- $pages = $pages.ByDate.Reverse }}
+      
+      {{- range $pages }}
+        <div class="teaching-experience-box paper-entry-simple">
+          <p class="paper-title-simple">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </p>
+          
+          {{- if .Params.author }}
+          <p class="paper-authors-simple">
+            {{- if eq (printf "%T" .Params.author) "[]string" }}
+              {{- delimit .Params.author ", " }}
+            {{- else }}
+              {{- .Params.author }}
+            {{- end }}
+          </p>
+          {{- end }}
+          
+          {{- if .Params.status }}
+          <p class="paper-status-simple">{{ .Params.status }}</p>
+          {{- else if .Params.date }}
+          <p class="paper-status-simple">{{ .Date.Format "2006" }}</p>
+          {{- end }}
+        </div>
+      {{- end }}
+    </div>
+  </div>
+</div>
+
+{{- end }}{{/* end main */}}
+

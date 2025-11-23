@@ -10,11 +10,13 @@ description: "Teaching experience and course materials at UC Berkeley"
 
 ### SUMMER 2025
 
-**CS 161: Computer Security**  
-UC Berkeley, Summer 2025  
-[Course Website](https://su25.cs161.org)  
-Co-instructing with Jonah Bedouch and Peyrin Kao  
-Topics: Cryptography, Network Security, Web Security, Memory Safety
+**CS 161: Computer Security**
+
+- UC Berkeley, Summer 2025
+- [Course Website](https://su25.cs161.org/)
+- Co-instructing with Jonah Bedouch and Peyrin Kao
+- Topics: Cryptography, Network Security, Web Security, Memory Safety
+- Check out the exams I wrote: ([midterm](https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf)/[final](https://assets.cs161.org/exams/su25/cs161-su25-final.pdf))
 
 ---
 
@@ -22,10 +24,11 @@ Topics: Cryptography, Network Security, Web Security, Memory Safety
 
 ### FALL 2025
 
-**CS 161: Computer Security**  
-UC Berkeley, Fall 2025  
-Managing team of 20+ TAs and tutors  
-Coordinating discussion sections, exam logistics, and course infrastructure
+**CS 161: Computer Security**
+
+- UC Berkeley, Fall 2025
+- Managing team of 20+ TAs and tutors
+- Coordinating discussion sections, exam logistics, and course infrastructure
 
 ---
 
@@ -33,16 +36,18 @@ Coordinating discussion sections, exam logistics, and course infrastructure
 
 ### SPRING 2025
 
-**CS 161: Computer Security** *(Tutor)*  
-UC Berkeley, Spring 2025  
-[Course Website](https://sp25.cs161.org)  
-Weekly tutoring sessions, project support, and exam review sessions
+**CS 161: Computer Security** *(Tutor)*
 
-**CS 10: The Beauty and Joy of Computing** *(Academic Intern)*  
-UC Berkeley, Spring 2025  
-[Course Website](https://cs10.org/sp25/)  
-Assisting with labs, grading, and student support  
-Instructor: Dan Garcia
+- UC Berkeley, Spring 2025
+- [Course Website](https://sp25.cs161.org)
+- Weekly tutoring sessions, project support, and exam review sessions
+
+**CS 10: The Beauty and Joy of Computing** *(Academic Intern)*
+
+- UC Berkeley, Spring 2025
+- [Course Website](https://cs10.org/sp25/)
+- Assisting with labs, grading, and student support
+- Instructor: Dan Garcia
 
 ---
 
@@ -50,19 +55,21 @@ Instructor: Dan Garcia
 
 ### SPRING 2025
 
-**CS 61B: Data Structures**  
-UC Berkeley, Spring 2025  
-[Course Website](https://sp25.datastructur.es)  
-Leading weekly small-group tutoring sections  
-Topics: Trees, Graphs, Hashing, Heaps, Sorting Algorithms
+**CS 61B: Data Structures**
+
+- UC Berkeley, Spring 2025
+- [Course Website](https://sp25.datastructur.es)
+- Leading weekly small-group tutoring sections
+- Topics: Trees, Graphs, Hashing, Heaps, Sorting Algorithms
 
 ### SPRING 2024
 
-**CS 61A: Structure and Interpretation of Computer Programs**  
-UC Berkeley, Spring 2024  
-[Past Course Websites](https://cs61a.org/resources/#past-course-websites)  
-Led weekly small-group tutoring sections  
-Topics: Recursion, Higher-Order Functions, Object-Oriented Programming, Scheme
+**CS 61A: Structure and Interpretation of Computer Programs**
+
+- UC Berkeley, Spring 2024
+- [Past Course Websites](https://cs61a.org/resources/#past-course-websites)
+- Led weekly small-group tutoring sections
+- Topics: Recursion, Higher-Order Functions, Object-Oriented Programming, Scheme
 
 ---
 

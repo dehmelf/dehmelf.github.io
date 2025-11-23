@@ -6,6 +6,11 @@
     padding: var(--gap);
 }
 
+/* Global Font Override */
+body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 .page-header h1 {
     font-size: var(--h1size);
 }
@@ -73,4 +78,9 @@ pre {
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
+}
+
+/* Custom Link Color for UC Berkeley Theme */
+a, a:visited {
+    color: #FDB515;
 }

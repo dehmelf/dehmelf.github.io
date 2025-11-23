@@ -37,14 +37,18 @@
     position: relative;
     margin-bottom: var(--gap);
     padding: var(--gap);
-    background: var(--entry);
-    border-radius: var(--radius);
+    background: #f8f8f8;
+    border: 2px solid #000;
+    border-radius: 0;
     transition: transform 0.1s;
-    border: 2px solid var(--border);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .post-entry:hover {
-     border: 2px solid var(--darkcolor);
+     transform: translate(-2px, -2px);
+     box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+     border: 2px solid #000;
 }
 
 .tag-entry .entry-cover {
@@ -54,11 +58,13 @@
 .entry-header h2 {
     font-size: 20px;
     line-height: var(--lineheight);
+    color: #000;
+    font-weight: bold;
 }
 
 .entry-content {
     margin: 20px 10px;
-    color: var(--secondary);
+    color: #333;
     font-size: var(--entrysize);
     line-height: var(--lineheight);
     overflow: hidden;
@@ -68,7 +74,7 @@
 }
 
 .entry-footer {
-    color: var(--content);
+    color: #333;
     font-size: var(--entrysize);
 }
 
@@ -81,7 +87,7 @@
 }
 
 .entry-hint {
-    color: var(--secondary);
+    color: #333;
 }
 
 .entry-hint-parent {
@@ -96,13 +102,14 @@
 }
 
 .entry-cover img {
-    border-radius: var(--radius);
+    border-radius: 0;
     pointer-events: none;
     width: 100%;
     height: auto;
+    border: 2px solid #000;
 }
 
 .entry-cover a {
-    color: var(--secondary);
-    box-shadow: 0 1px 0 var(--primary);
+    color: #333;
+    box-shadow: none;
 }

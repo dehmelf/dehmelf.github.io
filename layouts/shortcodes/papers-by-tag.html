@@ -26,40 +26,20 @@
   {{ end }}
 {{ end }}
 
-<div class="topic-container" style="margin: 20px 0;">
-  <div class="main-topics" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px;">
+<div class="topic-container">
+  <div class="main-topics">
     {{ range $topic, $subtopics := $topicHierarchy }}
       {{ $paperCount := len (index $papersByTopic $topic | default slice) }}
       {{ if gt $paperCount 0 }}
-      <div class="topic-group" style="
-        background: var(--code-bg);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 15px;
-        min-width: 200px;
-        transition: all 0.3s ease;
-      ">
-        <button class="main-topic-btn" data-topic="{{ $topic | urlize }}" style="
-          background: none;
-          border: none;
-          color: var(--primary);
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-          padding: 0;
-          margin-bottom: 10px;
-        ">
+      <div class="topic-group-box">
+        <button class="main-topic-btn" data-topic="{{ $topic | urlize }}">
           <span>{{ $topic }}</span>
-          <span style="display: flex; align-items: center; gap: 8px;">
-            <span class="paper-count" style="opacity: 0.7; font-size: 14px;">({{ $paperCount }})</span>
-            <span class="expand-icon" style="transition: transform 0.3s;">▼</span>
+          <span class="topic-meta">
+            <span class="paper-count">({{ $paperCount }})</span>
+            <span class="expand-icon">▼</span>
           </span>
         </button>
-        <div class="subtopics" style="display: none; margin-top: 10px;">
+        <div class="subtopics">
           {{ range $subtopics }}
             {{ $subtopic := . }}
             {{ $subCount := 0 }}
@@ -69,22 +49,8 @@
               {{ end }}
             {{ end }}
             {{ if gt $subCount 0 }}
-            <button class="subtopic-btn" data-tag="{{ $subtopic | urlize }}" style="
-              display: block;
-              width: 100%;
-              text-align: left;
-              padding: 6px 12px;
-              margin: 4px 0;
-              background: var(--tertiary);
-              border: 1px solid var(--border);
-              border-radius: 8px;
-              cursor: pointer;
-              font-size: 13px;
-              color: var(--secondary);
-              transition: all 0.2s ease;
-            " onmouseover="this.style.background='var(--primary)'; this.style.color='var(--theme)';" 
-               onmouseout="this.style.background='var(--tertiary)'; this.style.color='var(--secondary)';">
-              {{ $subtopic }} <span style="opacity: 0.7;">({{ $subCount }})</span>
+            <button class="subtopic-btn" data-tag="{{ $subtopic | urlize }}">
+              {{ $subtopic }} <span class="subtopic-count">({{ $subCount }})</span>
             </button>
             {{ end }}
           {{ end }}
@@ -93,45 +59,19 @@
       {{ end }}
     {{ end }}
     
-    <button class="show-all-btn" data-tag="all" style="
-      padding: 12px 20px;
-      background: var(--primary);
-      color: var(--theme);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    ">
+    <button class="show-all-btn" data-tag="all">
       Show All Papers
     </button>
   </div>
 </div>
 
-<style>
-.topic-group:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.subtopics {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.subtopics.expanded {
-  max-height: 500px;
-}
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mainTopicBtns = document.querySelectorAll('.main-topic-btn');
   const subtopicBtns = document.querySelectorAll('.subtopic-btn');
   const showAllBtn = document.querySelector('.show-all-btn');
-  const papers = document.querySelectorAll('.paper-entry');
+  const papers = document.querySelectorAll('.paper-entry-box');
   
   // Handle main topic expansion
   mainTopicBtns.forEach(btn => {
@@ -143,12 +83,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // Toggle subtopics
       if (subtopics.style.display === 'none' || subtopics.style.display === '') {
         subtopics.style.display = 'block';
+        subtopics.classList.add('expanded');
         expandIcon.style.transform = 'rotate(180deg)';
         
         // Show papers for this main topic
         filterPapersByMainTopic(topic);
       } else {
         subtopics.style.display = 'none';
+        subtopics.classList.remove('expanded');
         expandIcon.style.transform = 'rotate(0deg)';
       }
     });
@@ -163,11 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Highlight selected button
       subtopicBtns.forEach(b => {
-        b.style.background = 'var(--tertiary)';
-        b.style.color = 'var(--secondary)';
+        b.classList.remove('active');
       });
-      this.style.background = 'var(--primary)';
-      this.style.color = 'var(--theme)';
+      this.classList.add('active');
     });
   });
   
@@ -179,8 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Reset all button styles
     subtopicBtns.forEach(b => {
-      b.style.background = 'var(--tertiary)';
-      b.style.color = 'var(--secondary)';
+      b.classList.remove('active');
     });
   });
   

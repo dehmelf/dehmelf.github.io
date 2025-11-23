@@ -1,0 +1,14 @@
+{{- $url := .Get "url" -}}
+{{- $text := .Get "text" | default $url -}}
+{{- $favicon := .Get "favicon" | default "" -}}
+{{- if $favicon -}}
+<span class="wrap-link-favicon">
+    <a class="super-link-favicon" href="{{ $url }}">
+        <img src="{{ $favicon }}" class="link-favicon" alt="">
+    </a>
+    <a href="{{ $url }}">{{ $text }}</a>
+</span>
+{{- else -}}
+<a href="{{ $url }}">{{ $text }}</a>
+{{- end -}}
+

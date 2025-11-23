@@ -1,0 +1,140 @@
+/* Quantum Pattern Examples - Choose one to replace the current --bg-pattern */
+
+/* Option 1: Wave Function Pattern (Sinusoidal waves) */
+:root {
+    --bg-pattern-wave: 
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.015) 2px,
+            rgba(255, 255, 255, 0.015) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px
+        );
+}
+
+/* Option 2: Orbital Pattern (Electron shells) */
+:root {
+    --bg-pattern-orbital: 
+        radial-gradient(
+            circle at 30% 40%,
+            transparent 0,
+            transparent 80px,
+            rgba(255, 255, 255, 0.04) 80px,
+            rgba(255, 255, 255, 0.04) 82px,
+            transparent 82px,
+            transparent 160px,
+            rgba(255, 255, 255, 0.04) 160px,
+            rgba(255, 255, 255, 0.04) 162px
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            transparent 0,
+            transparent 80px,
+            rgba(255, 255, 255, 0.04) 80px,
+            rgba(255, 255, 255, 0.04) 82px,
+            transparent 82px,
+            transparent 160px,
+            rgba(255, 255, 255, 0.04) 160px,
+            rgba(255, 255, 255, 0.04) 162px
+        );
+}
+
+/* Option 3: Quantum Dot Grid */
+:root {
+    --bg-pattern-dots: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 20px,
+            rgba(255, 255, 255, 0.03) 20px,
+            rgba(255, 255, 255, 0.03) 21px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 20px,
+            rgba(255, 255, 255, 0.03) 20px,
+            rgba(255, 255, 255, 0.03) 21px
+        );
+}
+
+/* Option 4: Probability Cloud (Softer, more organic) */
+:root {
+    --bg-pattern-cloud: 
+        radial-gradient(
+            ellipse 400px 200px at 25% 35%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse 300px 300px at 75% 65%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse 350px 250px at 50% 50%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 50%
+        );
+}
+
+/* Option 5: Superposition Layers (Multiple overlapping patterns) */
+:root {
+    --bg-pattern-superposition: 
+        repeating-radial-gradient(
+            circle at 20% 30%,
+            transparent 0,
+            transparent 15px,
+            rgba(255, 255, 255, 0.02) 15px,
+            rgba(255, 255, 255, 0.02) 17px
+        ),
+        repeating-radial-gradient(
+            circle at 80% 70%,
+            transparent 0,
+            transparent 15px,
+            rgba(255, 255, 255, 0.02) 15px,
+            rgba(255, 255, 255, 0.02) 17px
+        ),
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 25px,
+            rgba(255, 255, 255, 0.015) 25px,
+            rgba(255, 255, 255, 0.015) 27px
+        );
+}
+
+/* Option 6: Particle Scatter (Random-looking dots) */
+:root {
+    --bg-pattern-scatter: 
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.04) 0px, transparent 2px),
+        radial-gradient(circle at 45% 15%, rgba(255, 255, 255, 0.03) 0px, transparent 2px),
+        radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.04) 0px, transparent 2px),
+        radial-gradient(circle at 25% 65%, rgba(255, 255, 255, 0.03) 0px, transparent 2px),
+        radial-gradient(circle at 55% 75%, rgba(255, 255, 255, 0.04) 0px, transparent 2px),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.03) 0px, transparent 2px),
+        radial-gradient(circle at 35% 45%, rgba(255, 255, 255, 0.04) 0px, transparent 2px),
+        radial-gradient(circle at 65% 55%, rgba(255, 255, 255, 0.03) 0px, transparent 2px);
+    --bg-pattern-scatter-size: 200px 200px;
+}
+
+/* Option 7: Quantum Entanglement (Connected nodes) - Uses SVG */
+:root {
+    --bg-pattern-entanglement: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='2' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='75' cy='25' r='2' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='50' cy='50' r='2' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='25' cy='75' r='2' fill='rgba(255,255,255,0.06)'/%3E%3Ccircle cx='75' cy='75' r='2' fill='rgba(255,255,255,0.06)'/%3E%3Cline x1='25' y1='25' x2='50' y2='50' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cline x1='75' y1='25' x2='50' y2='50' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cline x1='25' y1='75' x2='50' y2='50' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Cline x1='75' y1='75' x2='50' y2='50' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    --bg-pattern-entanglement-size: 100px 100px;
+}
+

@@ -10,6 +10,9 @@
 </head>
 
 <body class="
+{{- if .IsHome -}}
+{{- print "home " -}}
+{{- end -}}
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
 {{- print "list" -}}
 {{- end -}}
@@ -17,7 +20,7 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
-    {{- if not .IsHome  }}
+    {{- if and (not .IsHome) (ne .Section "papers-read") (ne .Section "courses") (ne .Section "papers") }}
     {{- partialCached "header.html" . .Page -}}
     {{- end }}
     <main class="main">

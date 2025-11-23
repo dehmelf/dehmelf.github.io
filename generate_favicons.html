@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+            background: white;
+        }
+        .instructions {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Favicon Generator for |F⟩⟨D|</h1>
+    <div class="instructions">
+        <p>This page generates PNG favicons from the SVG. Right-click each canvas and "Save image as..." to save the favicon files.</p>
+        <p>Save them as:</p>
+        <ul>
+            <li>16x16 → favicon-16x16.png</li>
+            <li>32x32 → favicon-32x32.png</li>
+            <li>180x180 → apple-touch-icon.png</li>
+        </ul>
+    </div>
+    
+    <div>
+        <canvas id="canvas16" width="16" height="16"></canvas>
+        <button onclick="downloadCanvas('canvas16', 'favicon-16x16.png')">Download 16x16</button>
+    </div>
+    <div>
+        <canvas id="canvas32" width="32" height="32"></canvas>
+        <button onclick="downloadCanvas('canvas32', 'favicon-32x32.png')">Download 32x32</button>
+    </div>
+    <div>
+        <canvas id="canvas180" width="180" height="180"></canvas>
+        <button onclick="downloadCanvas('canvas180', 'apple-touch-icon.png')">Download 180x180</button>
+    </div>
+    
+    <script>
+        function drawFavicon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // Transparent background (no fill)
+            
+            // Text - black
+            ctx.fillStyle = '#000000';
+            ctx.font = `bold ${Math.floor(size * 0.5)}px serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('|FD⟩', size / 2, size / 2);
+        }
+        
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        drawFavicon(document.getElementById('canvas16'), 16);
+        drawFavicon(document.getElementById('canvas32'), 32);
+        drawFavicon(document.getElementById('canvas180'), 180);
+    </script>
+    
+    <div class="instructions" style="margin-top: 30px;">
+        <h3>After downloading:</h3>
+        <ol>
+            <li>Save the downloaded files to <code>static/</code> directory (replace existing files)</li>
+            <li>Clear your browser cache (Ctrl+Shift+Delete or Cmd+Shift+Delete)</li>
+            <li>Hard refresh the page (Ctrl+F5 or Cmd+Shift+R)</li>
+            <li>Or try opening the site in an incognito/private window</li>
+        </ol>
+    </div>
+</body>
+</html>
+

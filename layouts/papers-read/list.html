@@ -1,67 +1,145 @@
 {{- define "main" }}
 
-<article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      {{ .Title }}
-    </h1>
-    {{- if .Description }}
-    <div class="post-description">
-      {{ .Description }}
+<div class="papers-read-page">
+  <div class="papers-read-content">
+    <div class="teaching-experience-box papers-read-title-box">
+      <h1 class="papers-read-title">{{ .Title }}</h1>
     </div>
-    {{- end }}
-  </header>
-  
-  <div class="post-content">
-    {{- .Content }}
     
-    {{- $pages := where .Site.RegularPages "Section" "papers-read" }}
-    {{- $pages = where $pages "Params.draft" "!=" true }}
-    {{- $pages = $pages.ByParam "weight" }}
-    
-    <div class="papers-list">
-    {{- range $pages }}
-      <div class="paper-entry" data-tags="{{ delimit .Params.tags "," | urlize }}" style="margin-bottom: 30px; padding: 20px; background: var(--code-bg); border-radius: 8px;">
-        <h3 style="margin-top: 0;">
-          <a href="{{ .RelPermalink }}" style="color: var(--primary);">{{ .Title }}</a>
-        </h3>
-        
-        {{- if .Params.author }}
-        <div style="color: var(--secondary); margin-bottom: 10px;">
-          <strong>Authors:</strong> {{ .Params.author }}
+    <div class="papers-read-body">
+      {{- .Content }}
+      
+      {{- $pages := where .Site.RegularPages "Section" "papers-read" }}
+      {{- $pages = where $pages "Params.draft" "!=" true }}
+      {{- $pages = $pages.ByParam "weight" }}
+      
+      <div class="papers-read-layout">
+        <!-- Filter Panel - Always visible on left -->
+        <div id="filter-panel" class="filter-panel filter-panel-sidebar">
+          <div class="filter-header">
+            <h3>Filter by Tags</h3>
+          </div>
+          <div class="filter-content">
+            {{- $topicHierarchy := dict 
+              "Quantum Computing" (slice "Quantum Error Correction" "Quantum Algorithms" "Quantum Supremacy" "NISQ" "Quantum Hardware" "Quantum Cryptography")
+              "ML" (slice "Deep Learning" "Transformers" "Reinforcement Learning" "Neural Architecture" "Computer Vision" "NLP")
+              "Cryptography" (slice "Post-Quantum Cryptography" "Zero-Knowledge Proofs" "Lattice-Based" "Homomorphic Encryption" "Secure Computation")
+              "Complexity Theory" (slice "P vs NP" "Circuit Complexity" "Communication Complexity" "Hardness Results" "Lower Bounds")
+              "Systems" (slice "Distributed Systems" "Operating Systems" "Compilers" "Architecture" "Networks")
+              "Algorithms" (slice "Graph Algorithms" "Optimization" "Randomized Algorithms" "Approximation Algorithms" "Data Structures")
+            }}
+            {{- range $mainTopic, $subtopics := $topicHierarchy }}
+            <div class="filter-directory">
+              <div class="directory-header" data-topic="{{ $mainTopic | urlize }}">
+                <span class="directory-icon">▶</span>
+                <span class="directory-name">{{ $mainTopic }}</span>
+              </div>
+              <div class="directory-content" style="display: none;">
+                {{- range $subtopics }}
+                <label class="filter-checkbox">
+                  <input type="checkbox" class="tag-filter" value="{{ . | urlize }}" data-tag="{{ . }}">
+                  <span class="checkbox-label">{{ . }}</span>
+                </label>
+                {{- end }}
+              </div>
+            </div>
+            {{- end }}
+          </div>
+          <div class="filter-actions">
+            <button id="filter-clear" class="filter-button">Clear All</button>
+            <button id="filter-apply" class="filter-button filter-button-primary">Apply Filter</button>
+          </div>
         </div>
-        {{- end }}
         
-        {{- if .Params.tags }}
-        <div class="paper-tags" style="margin-bottom: 10px;">
-          {{- range .Params.tags }}
-          <span style="
-            display: inline-block;
-            padding: 4px 10px;
-            margin-right: 8px;
-            margin-bottom: 5px;
-            background: var(--tertiary);
-            border-radius: 12px;
-            font-size: 12px;
-            color: var(--primary);
-          ">{{ . }}</span>
-          {{- end }}
-        </div>
+        <!-- Papers List - On the right -->
+        <div class="papers-list">
+        {{- range $pages }}
+          <div class="paper-entry-box" data-tags="{{ delimit .Params.tags "," | urlize }}">
+            <h3 class="paper-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            
+            {{- if .Params.author }}
+            <div class="paper-authors">
+              <strong>Authors:</strong> {{ .Params.author }}
+            </div>
+            {{- end }}
+            
+            {{- if .Params.tags }}
+            <div class="paper-tags">
+              {{- range .Params.tags }}
+              <span class="paper-tag">{{ . }}</span>
+              {{- end }}
+            </div>
+            {{- end }}
+            
+            {{- if .Description }}
+            <div class="paper-description">
+              {{ .Description }}
+            </div>
+            {{- end }}
+            
+            <div class="paper-link">
+              <a href="{{ .RelPermalink }}">Read my notes →</a>
+            </div>
+          </div>
         {{- end }}
-        
-        {{- if .Description }}
-        <div style="color: var(--secondary); font-style: italic;">
-          {{ .Description }}
-        </div>
-        {{- end }}
-        
-        <div style="margin-top: 10px;">
-          <a href="{{ .RelPermalink }}" style="color: var(--primary); text-decoration: underline;">Read my notes →</a>
         </div>
       </div>
-    {{- end }}
     </div>
   </div>
-</article>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterPanel = document.getElementById('filter-panel');
+  const filterClear = document.getElementById('filter-clear');
+  const filterApply = document.getElementById('filter-apply');
+  const tagFilters = document.querySelectorAll('.tag-filter');
+  const papers = document.querySelectorAll('.paper-entry-box');
+  const directoryHeaders = document.querySelectorAll('.directory-header');
+  
+  // Toggle directory sections
+  directoryHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.directory-icon');
+      const isOpen = content.style.display !== 'none';
+      
+      if (isOpen) {
+        content.style.display = 'none';
+        icon.textContent = '▶';
+      } else {
+        content.style.display = 'block';
+        icon.textContent = '▼';
+      }
+    });
+  });
+  
+  // Clear all filters
+  filterClear.addEventListener('click', function() {
+    tagFilters.forEach(checkbox => checkbox.checked = false);
+    papers.forEach(paper => paper.style.display = 'block');
+  });
+  
+  // Apply filter
+  filterApply.addEventListener('click', function() {
+    const selectedTags = Array.from(tagFilters)
+      .filter(cb => cb.checked)
+      .map(cb => cb.value);
+    
+    if (selectedTags.length === 0) {
+      papers.forEach(paper => paper.style.display = 'block');
+      return;
+    }
+    
+    papers.forEach(paper => {
+      const paperTags = paper.dataset.tags ? paper.dataset.tags.split(',').map(t => t.trim()) : [];
+      const hasMatch = selectedTags.some(tag => paperTags.includes(tag));
+      paper.style.display = hasMatch ? 'block' : 'none';
+    });
+  });
+});
+</script>
 
 {{- end }}{{/* end main */}}
