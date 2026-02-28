@@ -1,7 +1,7 @@
 <ul>
 <li>Hi, I am <span class="photo-hover-trigger">Frederick Dehmel<img src="/photo.jpeg" alt="Photo of Frederick Dehmel" class="photo-hover-image"></span> </li>
 <li>I am an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. </li>
-<li>Currently I am concentrating my focus on (Quantum) Error Correcting Codes, but broadly interested in quantum/classical: algorithms, complexity and theory, cryptography, and architecture.</li>
+<li>Currently I am concentrating my focus on (Quantum) Error Correcting Codes, but broadly interested in quantum/classical: algorithms, complexity theory, cryptography, and architecture.</li>
 
 
 </ul>
@@ -41,6 +41,5 @@ Albums of the
 <li>Read my <a href="/papers/">Papers</a></li>
 <li>See my <a href="/courses/">Teaching</a> experience</li>
 <li>View my <a href="/Academic_Resume.pdf">CV</a></li>
-<li>Browse <a href="/papers-read/">Papers I've Read!</a></li>
 </ul>
 

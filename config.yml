@@ -19,9 +19,6 @@ menu:
         - name: CV
           url: Academic_Resume.pdf
           weight: 3
-        - name: Papers I've Read!
-          url: papers-read/
-          weight: 4
 
 params:
     author: Frederick Dehmel
@@ -61,8 +58,6 @@ params:
               url: courses/
             - name: CV
               url: Academic_Resume.pdf
-            - name: Papers I've Read!
-              url: papers-read/
 
     socialIcons:
         - name: CV
