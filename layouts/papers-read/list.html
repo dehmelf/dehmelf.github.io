@@ -54,7 +54,8 @@
         <!-- Papers List - On the right -->
         <div class="papers-list">
         {{- range $pages }}
-          <div class="paper-entry-box" data-tags="{{ delimit .Params.tags "," | urlize }}">
+          {{- $tags := .Params.tags | default (slice) }}
+          <div class="paper-entry-box" data-tags="{{- range $index, $tag := $tags -}}{{- if gt $index 0 -}},{{- end -}}{{- $tag | urlize -}}{{- end -}}">
             <h3 class="paper-title">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h3>
