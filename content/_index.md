@@ -1,7 +1,8 @@
 <ul>
 <li>Hi, I am <span class="photo-hover-trigger">Frederick Dehmel<img src="/photo.jpeg" alt="Photo of Frederick Dehmel" class="photo-hover-image"></span> </li>
-<li>I am an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. </li>
+<li>I am an undergraduate researcher and Head TA at the University of California, Berkeley, studying computer science and pure mathematics. </li>
 <li>I work on cryptography and coding theory.</li>
+<li>In Summer 2026, I worked with the AWS Cryptography group on zero-knowledge proofs, secure multi-party computation, and fully homomorphic encryption.</li>
 
 
 </ul>
