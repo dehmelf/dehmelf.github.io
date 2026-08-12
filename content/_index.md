@@ -41,5 +41,6 @@ Albums of the
 <ul id="online">
 <li>Read my <a href="/papers/">Papers</a></li>
 <li>See my <a href="/courses/">Teaching</a> experience</li>
+<li>Exams I wrote for CS 161: <a href="https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf">Summer 2025 Midterm</a>, <a href="https://assets.cs161.org/exams/su25/cs161-su25-final.pdf">Summer 2025 Final</a>, <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf">Fall 2025 Midterm</a>, and <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf">Fall 2025 Final</a></li>
 <li>View my <a href="/Academic_Resume.pdf">CV</a></li>
 </ul>
