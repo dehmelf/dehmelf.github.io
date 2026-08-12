@@ -16,19 +16,22 @@ description: "Teaching experience and course materials at UC Berkeley"
 - [Course Website](https://su25.cs161.org/)
 - Co-instructing with Jonah Bedouch and Peyrin Kao
 - Topics: Cryptography, Network Security, Web Security, Memory Safety
-- Check out the exams I wrote: ([midterm](https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf)/[final](https://assets.cs161.org/exams/su25/cs161-su25-final.pdf))
+- Designed and delivered 20+ lectures for 150+ students, earning a 4.8/5.0 average course evaluation rating for instructional clarity and content depth
+- Exams I wrote: [Midterm](https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf) and [Final](https://assets.cs161.org/exams/su25/cs161-su25-final.pdf)
 
 ---
 
 ## Head Teaching Assistant
 
-### FALL 2025
+### FALL 2025-PRESENT
 
 **CS 161: Computer Security**
 
 - UC Berkeley, Fall 2025
 - Managing team of 20+ TAs and tutors
-- Coordinating discussion sections, exam logistics, and course infrastructure
+- Supporting 500+ students through staff scheduling, exam logistics, and course infrastructure
+- Received the 2026 Outstanding GSI Award
+- Exams I wrote: [Midterm](https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf) and [Final](https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf)
 
 ---
 
@@ -76,4 +79,3 @@ description: "Teaching experience and course materials at UC Berkeley"
 ## Teaching Philosophy
 
 I believe in making complex computer science concepts accessible through clear explanations, interactive examples, and hands-on practice. My experience across security, systems, and theoretical CS allows me to connect ideas across the curriculum and help students see the bigger picture.
-

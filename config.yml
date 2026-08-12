@@ -22,7 +22,7 @@ menu:
 
 params:
     author: Frederick Dehmel
-    description: "Welcome to my personal website! I'm an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. I'm broadly interested in efficiency: whether it's quantum AND classical for all of the following: algorithms, complexity and theory, cryptography, and architecture."
+    description: "Welcome to my personal website! I'm an undergraduate researcher at the University of California, Berkeley, studying computer science and pure mathematics. I work on cryptography and coding theory."
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: light
@@ -47,7 +47,7 @@ params:
     profileMode:
           enabled: false
           title: Frederick Dehmel
-          subtitle: "Undergraduate researcher at UC Berkeley studying computer science and pure mathematics. I'm broadly interested in quantum and classical algorithms, complexity theory, cryptography, and computer architecture."
+          subtitle: "Undergraduate researcher at UC Berkeley studying computer science and pure mathematics. I work on cryptography and coding theory."
           # imageUrl: "picture.jpeg"
           # imageWidth: 180
           # imageHeight: 180
