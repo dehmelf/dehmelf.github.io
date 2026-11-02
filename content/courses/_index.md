@@ -27,15 +27,25 @@ description: "Teaching experience and course materials at UC Berkeley"
 
 **CS 161: Computer Security**
 
-- UC Berkeley, Fall 2025
+- UC Berkeley, Fall 2025, Spring 2026, and Fall 2026
 - Managing team of 20+ TAs and tutors
 - Supporting 500+ students through staff scheduling, exam logistics, and course infrastructure
 - Received the 2026 Outstanding GSI Award
-- Exams I wrote: [Midterm](https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf) and [Final](https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf)
+- Fall 2026 exam I wrote: [Midterm](https://assets.cs161.org/exams/fa26/cs161-fa26-midterm.pdf)
+- Spring 2026 exams I wrote: [Midterm](https://assets.cs161.org/exams/sp26/cs161-sp26-midterm.pdf) and [Final](https://assets.cs161.org/exams/sp26/cs161-sp26-final.pdf)
+- Fall 2025 exams I wrote: [Midterm](https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf) and [Final](https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf)
 
 ---
 
 ## Teaching Assistant & Tutor
+
+### SUMMER 2026
+
+**CS 161: Computer Security** *(Teaching Assistant)*
+
+- UC Berkeley, Summer 2026
+- [Course Website](https://su26.cs161.org/)
+- Exams I wrote: [Midterm](https://assets.cs161.org/exams/su26/cs161-su26-midterm.pdf) and [Final](https://assets.cs161.org/exams/su26/cs161-su26-final.pdf)
 
 ### SPRING 2025
 

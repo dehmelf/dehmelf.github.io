@@ -40,7 +40,16 @@ Albums of the
 
 <ul id="online">
 <li>Read my <a href="/papers/">Papers</a></li>
+<li>Latest paper: <a href="/papers/adversarial-deletion-ceiling/">A Public-Key-Dependent Adversarial-Deletion Ceiling for Fixed-Alphabet Multi-Bit Pseudorandom Codes</a> (with Shilun Li, 2026)</li>
 <li>See my <a href="/courses/">Teaching</a> experience</li>
-<li>Exams I wrote for CS 161: <a href="https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf">Summer 2025 Midterm</a>, <a href="https://assets.cs161.org/exams/su25/cs161-su25-final.pdf">Summer 2025 Final</a>, <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf">Fall 2025 Midterm</a>, and <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf">Fall 2025 Final</a></li>
+<li>Exams I wrote for CS 161:
+<ul>
+<li>Fall 2026: <a href="https://assets.cs161.org/exams/fa26/cs161-fa26-midterm.pdf">Midterm</a></li>
+<li>Summer 2026: <a href="https://assets.cs161.org/exams/su26/cs161-su26-midterm.pdf">Midterm</a>, <a href="https://assets.cs161.org/exams/su26/cs161-su26-final.pdf">Final</a></li>
+<li>Spring 2026: <a href="https://assets.cs161.org/exams/sp26/cs161-sp26-midterm.pdf">Midterm</a>, <a href="https://assets.cs161.org/exams/sp26/cs161-sp26-final.pdf">Final</a></li>
+<li>Fall 2025: <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-midterm.pdf">Midterm</a>, <a href="https://assets.cs161.org/exams/fa25/cs161-fa25-final.pdf">Final</a></li>
+<li>Summer 2025: <a href="https://assets.cs161.org/exams/su25/cs161-su25-midterm.pdf">Midterm</a>, <a href="https://assets.cs161.org/exams/su25/cs161-su25-final.pdf">Final</a></li>
+</ul>
+</li>
 <li>View my <a href="/Academic_Resume.pdf">CV</a></li>
 </ul>
