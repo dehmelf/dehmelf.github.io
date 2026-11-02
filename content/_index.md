@@ -10,7 +10,7 @@
 <h1>Contact</h1>
 
 <ul>
-<li>Email :: [surname] + [the letter "f"]<code class="at-highlight">at</code>[berkeley.edu] (<a href="keys.html" class="keys-link">keys</a>)</li>
+<li>Email :: [surname] + [the letter "f"]<code class="at-highlight">at</code>[berkeley.edu] (<a href="/keys/" class="keys-link">keys</a>)</li>
 <li><a href="https://github.com/dehmelf">GitHub</a> :: <a href="https://github.com/dehmelf">dehmelf</a></li>
 <li><a href="https://www.linkedin.com/in/dehmelf">LinkedIn</a> :: <a href="https://www.linkedin.com/in/dehmelf">dehmelf</a></li>
 </ul>
