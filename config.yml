@@ -73,17 +73,16 @@ params:
     assets:
         disableHLJS: true
         disableScrollBarStyle: true
-        favicon: "sc.png"
-        favicon16x16: "sc.png"
-        favicon32x32: "sc.png"
-        apple_touch_icon: "sc.png"
-        mask_icon: "sc.png"
+        favicon: "favicon.svg"
+        favicon16x16: "favicon-key-16.png"
+        favicon32x32: "favicon-key-32.png"
+        apple_touch_icon: "apple-touch-icon-key.png"
     cover:
         hiddenInList: false
         hiddenInSingle: true
     label:
       text: "Frederick Dehmel"
-      icon: sc.png
+      icon: favicon-key-32.png
       iconHeight: 18
 
 markup:

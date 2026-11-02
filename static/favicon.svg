@@ -1,3 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <text x="100" y="110" font-family="serif" font-size="100" fill="#000000" text-anchor="middle" dominant-baseline="middle" font-weight="bold">|FD⟩</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>Gold skeleton key on Berkeley blue</title>
+  <defs>
+    <linearGradient id="brass" x1="35" y1="15" x2="86" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE3A0"/>
+      <stop offset="0.52" stop-color="#FDB515"/>
+      <stop offset="1" stop-color="#DDA12B"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="23" fill="#003262"/>
+  <g transform="rotate(-42 64 64)" fill="url(#brass)" stroke="url(#brass)" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(14.08 8.8) scale(.78)">
+      <path d="M64 18C73 7 88 13 86 26C100 22 106 38 96 46C101 60 86 69 76 60C71 68 57 68 52 60C42 69 27 60 32 46C22 38 28 22 42 26C40 13 55 7 64 18Z" fill="none" stroke-width="8"/>
+      <path d="M76 32C61 23 47 35 56 43C61 48 74 39 76 48C78 57 63 60 53 52" fill="none" stroke-width="6"/>
+    </g>
+    <path d="M59 57H69V99H84V112H59Z" stroke="none"/>
+    <path d="M56 63H72M56 70H72" fill="none" stroke-width="4"/>
+  </g>
 </svg>

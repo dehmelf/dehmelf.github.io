@@ -82,12 +82,11 @@
 {{- end -}}
 
 {{- /* Favicons */}}
-<link rel="icon" type="image/png" href="{{ "sc.png" | absURL }}?v=4">
-<link rel="icon" href="{{ site.Params.assets.favicon | default "sc.png" | absURL }}?v=4">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "sc.png" | absURL }}?v=4">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "sc.png" | absURL }}?v=4">
-<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "sc.png" | absURL }}">
-<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "sc.png" | absURL }}" color="#639ab3" >
+<link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}?v=key-1">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | absURL }}?v=key-1">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | absURL }}?v=key-1">
+<link rel="icon" type="image/svg+xml" sizes="any" href="{{ site.Params.assets.favicon | absURL }}?v=key-1">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ site.Params.assets.apple_touch_icon | absURL }}?v=key-1">
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#639ab3" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#639ab3" }}">
 

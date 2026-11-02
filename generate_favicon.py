@@ -1,45 +1,38 @@
 #!/usr/bin/env python3
-"""
-Generate favicon PNG files from SVG
-Requires: pip install cairosvg pillow
-"""
+"""Render the SVG favicon. Run: uv run --with cairosvg --with pillow generate_favicon.py"""
 
-try:
-    import cairosvg
-    from PIL import Image
-    import io
-    
-    # Read the SVG
-    with open('static/favicon.svg', 'r') as f:
-        svg_content = f.read()
-    
-    # Generate different sizes
-    sizes = [16, 32, 180]  # 16x16, 32x32, and 180x180 for apple-touch-icon
-    
-    for size in sizes:
-        # Convert SVG to PNG
-        png_data = cairosvg.svg2png(bytestring=svg_content.encode('utf-8'), output_width=size, output_height=size)
-        
-        # Save to appropriate file
-        if size == 16:
-            filename = 'static/favicon-16x16.png'
-        elif size == 32:
-            filename = 'static/favicon-32x32.png'
-        elif size == 180:
-            filename = 'static/apple-touch-icon.png'
-        
-        with open(filename, 'wb') as f:
-            f.write(png_data)
-        print(f"Generated {filename}")
-    
-    # Generate ICO file (16x16)
-    png_data = cairosvg.svg2png(bytestring=svg_content.encode('utf-8'), output_width=16, output_height=16)
-    img = Image.open(io.BytesIO(png_data))
-    img.save('static/favicon.ico', format='ICO', sizes=[(16, 16)])
-    print("Generated static/favicon.ico")
-    
-except ImportError:
-    print("Error: cairosvg and pillow are required.")
-    print("Install with: pip install cairosvg pillow")
-    print("\nAlternatively, you can use online tools to convert static/favicon.svg to PNG/ICO formats")
+from io import BytesIO
+from pathlib import Path
 
+import cairosvg
+from PIL import Image
+
+
+def main():
+    static = Path(__file__).resolve().parent / "static"
+    source = (static / "favicon.svg").read_bytes()
+    master = Image.open(BytesIO(cairosvg.svg2png(
+        bytestring=source, output_width=1024, output_height=1024,
+    )))
+    sizes = {
+        "favicon-key-16.png": 16,
+        "favicon-key-32.png": 32,
+        "apple-touch-icon-key.png": 180,
+        # Keep older bookmarks and clients consistent with the new icon.
+        "favicon-16x16.png": 16,
+        "favicon-32x32.png": 32,
+        "apple-touch-icon.png": 180,
+        "sc.png": 512,
+        "img/favicon-16x16.png": 16,
+        "img/favicon-32x32.png": 32,
+        "img/apple-touch-icon.png": 180,
+    }
+    for filename, size in sizes.items():
+        master.resize((size, size), Image.Resampling.LANCZOS).save(static / filename)
+    master.save(static / "favicon.ico", format="ICO", sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
+    (static / "img/favicon.ico").write_bytes((static / "favicon.ico").read_bytes())
+    print("Generated SVG favicon's PNG, Apple touch, and ICO variants.")
+
+
+if __name__ == "__main__":
+    main()
