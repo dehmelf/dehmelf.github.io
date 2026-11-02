@@ -20,6 +20,7 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
+    <canvas class="binary-stream" id="binary-stream" aria-hidden="true"></canvas>
     {{- if and (not .IsHome) (ne .Section "papers-read") (ne .Section "courses") (ne .Section "papers") }}
     {{- partialCached "header.html" . .Page -}}
     {{- end }}
@@ -27,5 +28,7 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    {{- $binaryStream := resources.Get "js/binary-stream.js" | resources.Minify | fingerprint }}
+    <script defer src="{{ $binaryStream.RelPermalink }}" integrity="{{ $binaryStream.Data.Integrity }}" crossorigin="anonymous"></script>
 </body>
 </html>
